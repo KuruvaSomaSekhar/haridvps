@@ -12,6 +12,8 @@ pipeline {
         stage("Build"){
              steps {
                 println "Here we build code"
+                sh "mvn clean package"
+                sh "ls -l target/"
             }
 
         }
