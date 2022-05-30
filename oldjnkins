@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage(clone){
+           steps {
+               println "Here I'm cloning code1"
+           }
+            
+        }
+        stage(build){
+             steps {
+               println "Here I'm cloning code2"
+           }
+        }
+        stage(upload){
+             steps {
+               println "Here I'm cloning code3"
+           }
+        }
+        stage(deploy){
+             steps {
+               println "Here I'm cloning code4"
+           }
+        }
+    }
+}
