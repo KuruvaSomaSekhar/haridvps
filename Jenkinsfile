@@ -35,6 +35,7 @@ pipeline {
         stage("Deploy"){
                 steps {
                 println "Here we deploy artifacts"
+                sh "scp -o StrictHostKeyChecking=no -i /tmp/devops-hari.pem target/hello-*.war ec2-user@172.31.6.12:/var/lib/tomcat/webapps/"
             }
         }
     }
