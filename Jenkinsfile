@@ -7,7 +7,7 @@ pipeline {
         stage("Clone"){
             steps {
                 println "Here we clone code"
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[ url: 'https://github.com/KuruvaSomaSekhar/sample-java-website.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[ credentialsId: 'hari-id', url: 'https://github.com/KuruvaSomaSekhar/sample-java-website.git']]])
                 sh "ls -lart "
             }
 
