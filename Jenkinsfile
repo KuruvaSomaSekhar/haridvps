@@ -24,7 +24,7 @@ pipeline {
                 sh """
                     aws s3 ls s3://artifacthari
                     echo $BUILD_NUMBER
-                    branch=$(echo $GIT_BRANCH   | sed -e "s|origin/||g")
+                    branch=$\(echo $GIT_BRANCH   | sed -e "s|origin/||g")
                     echo $branch
                     aws s3 cp target/hello-*.war s3://artifacthari/$branch/$BUILD_NUMBER/
                 """
