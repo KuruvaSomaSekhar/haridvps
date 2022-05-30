@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+     BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+  }
     stages{
         stage("Clone"){
             steps {
@@ -23,10 +26,7 @@ pipeline {
                 println "Here we upload artifacts"
                 sh """
                     aws s3 ls s3://artifacthari
-                    echo $BUILD_NUMBER
-                    branch=${echo env.GIT_BRANCH   | sed -e "s|origin/||g"}
-                    echo $branch
-                    aws s3 cp target/hello-*.war s3://artifacthari/$branch/$BUILD_NUMBER/
+                    aws s3 cp target/hello-*.war s3://artifacthari/$BRANCH_NAME/$BUILD_NUMBER/
                 """
             }
 
