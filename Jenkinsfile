@@ -25,6 +25,7 @@ pipeline {
               steps {
                 println "Here we upload artifacts"
                 sh """
+                    echo $BRANCH_NAME
                     aws s3 ls s3://artifacthari
                     aws s3 cp target/hello-*.war s3://artifacthari/$BRANCH_NAME/$BUILD_NUMBER/
                 """
