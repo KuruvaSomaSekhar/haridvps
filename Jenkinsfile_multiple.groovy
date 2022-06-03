@@ -14,7 +14,7 @@ pipeline{
                 do
                 echo $server
                 echo "SCP command here"
-                aws s3 cp s3://jenkins101/origin/$BRANCH_NAME/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war .
+                aws s3 cp s3://jenkins101/origin/$BRANCH/${BUILD_NUMBER}/hello-${BUILD_NUMBER}.war .
                 scp -i /tmp/kiran.pem hello-${BUILD_NUMBER}.war ec2-user@$server:/var/lib/tomcat/webapps
                 done
 
