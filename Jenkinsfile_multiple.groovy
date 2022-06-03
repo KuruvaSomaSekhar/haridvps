@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage("Deploy"){
             steps{
+                script {
                 println "Just dance"
                 sh """
                 echo $BUILD_NUMBER $BRANCH $SERVERIPS
@@ -10,6 +11,7 @@ pipeline{
                 echo $MYSERVERIPS[@]
 
                 """
+                }
             }
         }
     }
