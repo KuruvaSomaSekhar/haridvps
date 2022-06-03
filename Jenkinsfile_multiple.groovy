@@ -7,7 +7,7 @@ pipeline{
                 sh """
                 echo $BUILD_NUMBER $BRANCH $SERVERIPS
                 IFS="," read -r -a MYSERVERIPS <<< $SERVERIPS
-                echo ${MYSERVERIPS[@]}
+                echo ${MYSERVERIPS}
 
                 """
             }
