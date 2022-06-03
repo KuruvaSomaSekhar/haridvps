@@ -5,12 +5,12 @@ pipeline{
             steps{
                 script {
                 println "Just dance"
-                sh """
+                sh '''
                 echo $BUILD_NUMBER $BRANCH $SERVERIPS
                 IFS="," read -r -a MYSERVERIPS <<< $SERVERIPS
                 echo ${MYSERVERIPS[@]}
 
-                """
+                '''
                 }
             }
         }
